@@ -3,10 +3,13 @@ package com.example.convidados
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteStatement
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Função para abrir tela para update
         listViewGuests.setOnItemClickListener { _/*O _ é para omitir*/, _, idx/*Index*/, _ ->
             println("O indíce da lista clicado é o $idx")
 
@@ -49,11 +53,61 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Função para excluir
+        listViewGuests.setOnItemLongClickListener { _, _, idx, _ ->
+            //Buscando qual item foi selecionado
+            ID_SELECIONADO = guestList[idx].id
 
+            confirmDelete() //Função para confirmar exclusão do item
+
+            true
+        }
 
         createDatabase()
         getGuestList()
     }
+
+
+    private fun confirmDelete() {
+        //Função para confirmar exclusão do item
+        //Criando pop-up na tela para comnfirmar exclusão
+        AlertDialog.Builder(this) //Usando método builder para criar programando o alert
+            .setTitle("Confirmação") //Título do alert
+            .setMessage("Deseja realmente excluir esse registro?")//Mensagem do alert
+            .setIcon(android.R.drawable.ic_menu_delete)//Ícone do alert
+            .setPositiveButton("Sim") {_,_ -> //Caso clique seja positivo
+                delete() //Função para deletar
+                getGuestList() //Atualizando banco de dados e lista
+            }
+            .setNegativeButton("Não", null) //Caso clique seja negativo
+            .show() //Mostrando o alert
+    }
+
+        private fun delete() {
+            try {
+                //Abrindo banco de dados
+                databaseApp = openOrCreateDatabase("dbGuestApp", MODE_PRIVATE, null)
+
+                //Escrevendo o SQL
+                val sql = "DELETE FROM guestTable WHERE id = ?"
+
+                //Criando statement
+                val stmt: SQLiteStatement = databaseApp.compileStatement(sql)
+
+                //Preenchendo o ? com o dados de id
+                stmt.bindLong(1, ID_SELECIONADO!!.toLong())
+
+                //Executando o update
+                stmt.executeUpdateDelete()
+
+                //Fechando o banco
+                databaseApp.close()
+                Toast.makeText(this, "Convidado Excluido!", Toast.LENGTH_SHORT).show()
+            } catch (e:Exception) {
+                e.printStackTrace()
+            }
+
+        }
 
     private fun getGuestList() {
         try {

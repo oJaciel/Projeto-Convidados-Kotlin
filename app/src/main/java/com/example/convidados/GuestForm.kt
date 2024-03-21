@@ -3,11 +3,13 @@ package com.example.convidados
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteStatement
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class GuestForm : AppCompatActivity() {
 
@@ -34,12 +36,45 @@ class GuestForm : AppCompatActivity() {
         load()
 
 
-
         btnSave = findViewById(R.id.btnSave)
 
         btnSave.setOnClickListener{
-            save()
+            if (idReceivedParam!! > 0) {
+                update()
+            } else {
+                save()
+            }
         }
+    }
+
+    private fun update() {
+        //Captando nome digitado pelo usuário
+        val valueName = edtGuestName.text.toString()
+        try {
+            //Abrindo banco de dados
+            databaseApp = openOrCreateDatabase("dbGuestApp", MODE_PRIVATE, null)
+
+            //Escrevendo o SQL
+            val sql = "UPDATE guestTable SET name = ? WHERE id = ?"
+
+            //Criando statement
+            val stmt:SQLiteStatement = databaseApp.compileStatement(sql)
+
+            //Preenchendo os ? com os dados de nome e id
+            stmt.bindString(1, valueName)
+            stmt.bindLong(2, idReceivedParam!!.toLong())
+
+            //Executando o update
+            stmt.executeUpdateDelete()
+
+            //Fechando o banco
+            databaseApp.close()
+            Toast.makeText(this, "Dados atualizados!", Toast.LENGTH_SHORT).show()
+        } catch (e:Exception) {
+            e.printStackTrace()
+        }
+        finish()
+
     }
 
     //Função para carregar nome do convidado a ser editado
@@ -58,6 +93,7 @@ class GuestForm : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
     }
 
     private fun save() {
@@ -73,11 +109,12 @@ class GuestForm : AppCompatActivity() {
             stmt.executeInsert() //Executando o insert no banco
 
             databaseApp.close()
-
+            Toast.makeText(this, "Dados salvos!", Toast.LENGTH_SHORT).show()
         } catch (e:Exception){
             e.printStackTrace()
         }
         finish() //Função para finalizar a activity (volta pra main)
+
     }
 
 }
