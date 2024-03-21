@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".GuestForm">
 
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:id="@+id/toolbar_form"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <TextView
+            android:text="Formulário"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/txtGuestName"
         android:layout_marginTop="16dp"
@@ -13,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome do convidado"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_form"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.widget.Toolbar
 
 class GuestForm : AppCompatActivity() {
 
@@ -19,12 +20,20 @@ class GuestForm : AppCompatActivity() {
 
     private lateinit var btnSave:Button
 
+    private lateinit var toolbar:androidx.appcompat.widget.Toolbar;
+
     //Variável para recebr o parâmetro passado da tela main via intent (editar)
     private var idReceivedParam: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest_form)
+
+        //Configurando para botão da toolbar para voltar na tela main
+        toolbar = findViewById(R.id.toolbar_form)
+        toolbar.setNavigationOnClickListener(){
+            finish()
+        }
 
         edtGuestName = findViewById(R.id.edtGuestName)
 
