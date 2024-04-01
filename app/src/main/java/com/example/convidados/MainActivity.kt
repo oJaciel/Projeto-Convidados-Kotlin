@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun confirmDelete() {
         //Função para confirmar exclusão do item
-        //Criando pop-up na tela para comnfirmar exclusão
+        //Criando pop-up na tela para confirmar exclusão
         AlertDialog.Builder(this) //Usando método builder para criar programando o alert
             .setTitle("Confirmação") //Título do alert
             .setMessage("Deseja realmente excluir esse registro?")//Mensagem do alert

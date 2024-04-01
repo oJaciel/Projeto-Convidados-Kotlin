@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:id="@+id/toolbar_form_cadastro"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <TextView
+            android:text="Cadastro"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edtCadastroName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:hint="Nome"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_form_cadastro"
+        />
+
+    <EditText
+        android:id="@+id/edtCadastroEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:hint="Email"
+        app:layout_constraintTop_toBottomOf="@id/edtCadastroName"
+        />
+
+    <EditText
+        android:id="@+id/edtCadastroSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:hint="Senha"
+        app:layout_constraintTop_toBottomOf="@id/edtCadastroEmail"
+        />
+
+    <Button
+        android:id="@+id/btnCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:backgroundTint="@color/bg_button_login"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="16sp"
+            android:text="Cadastrar"
+        app:layout_constraintTop_toBottomOf="@id/edtCadastroSenha"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

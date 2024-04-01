@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:background="?attr/colorPrimary"
+    >
+
+    <ImageView
+        android:id="@+id/logoUpf"
+        android:contentDescription="Logo UPF"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_upf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        />
+    
+    <EditText
+        android:id="@+id/edtLoginEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="12dp"
+        app:layout_constraintVertical_bias="0.55"
+        android:textSize="24sp"
+        android:hint="Email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/edtLoginSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:hint="Senha"
+        app:layout_constraintTop_toBottomOf="@id/edtLoginEmail"
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="12dp"
+        android:backgroundTint="@color/bg_button_login"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="16sp"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@id/edtLoginSenha"
+        />
+
+    <TextView
+        android:id="@+id/txtLoginCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="@string/txt_login_cadastrar"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
