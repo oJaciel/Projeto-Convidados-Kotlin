@@ -13,10 +13,16 @@
         android:theme="@style/Theme.Convidados"
         tools:targetApi="31">
         <activity
-            android:name=".GuestForm"
+            android:name=".RegisterForm"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuestForm"
+            android:exported="false" />
+        <activity
+            android:name=".LoginForm"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
