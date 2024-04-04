@@ -28,7 +28,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/edtCadastroName"
+        android:id="@+id/edtRegisterName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -41,7 +41,7 @@
         />
 
     <EditText
-        android:id="@+id/edtCadastroEmail"
+        android:id="@+id/edtRegisterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -50,11 +50,11 @@
         android:padding="12dp"
         android:textSize="24sp"
         android:hint="Email"
-        app:layout_constraintTop_toBottomOf="@id/edtCadastroName"
+        app:layout_constraintTop_toBottomOf="@id/edtRegisterName"
         />
 
     <EditText
-        android:id="@+id/edtCadastroSenha"
+        android:id="@+id/edtRegisterPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -63,11 +63,11 @@
         android:padding="12dp"
         android:textSize="24sp"
         android:hint="Senha"
-        app:layout_constraintTop_toBottomOf="@id/edtCadastroEmail"
+        app:layout_constraintTop_toBottomOf="@id/edtRegisterEmail"
         />
 
     <Button
-        android:id="@+id/btnCadastro"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
@@ -77,7 +77,7 @@
         android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
             android:text="Cadastrar"
-        app:layout_constraintTop_toBottomOf="@id/edtCadastroSenha"
+        app:layout_constraintTop_toBottomOf="@id/edtRegisterPass"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
