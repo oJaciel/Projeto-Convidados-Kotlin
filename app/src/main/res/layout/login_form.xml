@@ -37,7 +37,7 @@
         />
 
     <EditText
-        android:id="@+id/edtLoginPass"
+        android:id="@+id/edtLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -58,7 +58,7 @@
         android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         android:text="Login"
-        app:layout_constraintTop_toBottomOf="@id/edtLoginPass"
+        app:layout_constraintTop_toBottomOf="@id/edtLoginPassword"
         />
 
     <TextView

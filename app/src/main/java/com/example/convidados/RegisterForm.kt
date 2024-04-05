@@ -38,7 +38,7 @@ class RegisterForm : AppCompatActivity() {
             finish()
         }
 
-        //Chamando funçao de insert ao clicar no botão
+        //Chamando funçao de insert ao clicar no botão de cadastro
         btnRegister.setOnClickListener{
             register()
         }
